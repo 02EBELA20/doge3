@@ -34,29 +34,61 @@ header {
 .logo img {
   height: 100px;
 }
-/* ლოგოს ყვითელი ნათების ეფექტი */
-.glow-effect {
-  position: relative;
-  display: inline-block;
-  animation: glow 2s infinite; /* ანიმაციის გამოყენება */
+
+.main-image {
+  position: relative; /* კონტეინერისთვის აუცილებელია პოზიციონირება */
+  width: 100%;
 }
 
-.glow-effect img {
-  display: block; /* სურათის სწორი განლაგებისთვის */
-  box-shadow: 0 0 20px rgba(255, 255, 0, 0.8); /* საწყისი ყვითელი ნათება */
-  border-radius: 50px; /* ლოგოს კუთხეების რბილი ფორმა */
+.main-image img {
+  width: 100%; /* მთავარი სურათის სიგანე */
+  height: auto; /* პროპორციული სიმაღლე */
+}
+.logo-on-image {
+  position: absolute;
+  width: 300px;
+  height: ;
+  border-radius: 50%;
 }
 
-/* ანიმაცია: ნათების გაძლიერება და შესუსტება */
-@keyframes glow {
+.loggo {
+  position: absolute; /* აბსოლუტური პოზიცია */
+  border-radius: 50%; /* წრის ფორმა */
+  overflow: hidden; /* ზედმეტი ნაწილების დამალვა */
+
+  transform: translate(-50%, -50%); /* სრული ცენტრირება */
+}
+
+.loggo {
+  position: absolute; /* აბსოლუტური პოზიცია */
+  width: 280px; /* სიგანე */
+  height: 280px; /* სიმაღლე */
+  border-radius: 50%; /* წრის ფორმა */
+  overflow: hidden; /* ზედმეტი ნაწილების დამალვა */
+  top: 25%; /* ვერტიკალური პოზიცია */
+  left: 49%; /* ჰორიზონტალური პოზიცია */
+  transform: translate(-50%, -50%); /* სრული ცენტრირება */
+  box-shadow: 0 0 30px 10px rgba(0, 255, 0, 0.8); /* ნათება მწვანე ფერში */
+  animation: glowEffect 2s infinite; /* ანიმაციური ნათება */
+}
+
+.loggo img {
+  width: 100%; /* სურათის სიგანე */
+  height: 100%; /* სურათის სიმაღლე */
+  object-fit: cover; /* სურათის ცენტრში შევსება */
+  border-radius: 50%; /* სურათსაც დავუმატოთ წრის ფორმა */
+}
+
+/* ანიმაცია ნათებისთვის */
+@keyframes glowEffect {
   0% {
-    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5); /* სუსტი ნათება */
+    box-shadow: 0 0 15px 5px rgba(0, 255, 0, 0.5);
   }
   50% {
-    box-shadow: 0 0 30px rgba(255, 255, 0, 1); /* ძლიერი ნათება */
+    box-shadow: 0 0 30px 15px rgba(0, 255, 0, 1);
   }
   100% {
-    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5); /* სუსტი ნათება */
+    box-shadow: 0 0 15px 5px rgba(0, 255, 0, 0.5);
   }
 }
 
@@ -100,6 +132,19 @@ nav a:hover {
 
 nav a:active {
   color: #b33f1c; /* ფერი შეიცვლება ნარინჯისფერზე, როცა დააწკაპებენ */
+}
+
+.main-image {
+  position: relative; /* სურათის კონტეინერი */
+  width: 100%; /* სურათის სიგანე */
+  display: flex;
+  justify-content: center; /* ლოგოს ცენტრირება სურათის ცენტრში */
+  align-items: center;
+}
+
+.main-image img {
+  width: 100%; /* სურათის სიგანის დაყენება */
+  height: auto; /* პროპორციული სიმაღლე */
 }
 
 /* მოძრავი ტექსტის კონტეინერი */
@@ -217,7 +262,7 @@ nav a:active {
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.7);
-  color: white;
+  color: rgb(0, 0, 0);
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -253,7 +298,7 @@ nav a:active {
   flex: 0 0 calc(100% / 3); /* 3 ვიდეოს ეკრანზე თანაბარი განაწილება */
   box-sizing: border-box;
   padding: 10px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;

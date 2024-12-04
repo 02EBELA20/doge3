@@ -114,3 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // დროის ინტერვალზე ფერების ცვლილება
   setInterval(animateBackground, 6000);
 });
+
+document.querySelectorAll(".video-description").forEach((desc) => {
+  desc.style.opacity = "1";
+  desc.style.visibility = "visible";
+});

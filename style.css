@@ -16,6 +16,14 @@ header {
   position: relative;
 }
 
+.highlight {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.dimmed {
+  opacity: 0.5;
+}
+
 .logo {
   margin-bottom: 20px;
   display: flex;
@@ -148,16 +156,16 @@ nav a:active {
   max-width: 800px; /* ტექსტის კონტეინერის სიგანე */
 
   border-radius: 10px; /* კონტეინერის კუთხეების მომრგვალება */
-  box-shadow: 0 4px 8px rgba(3, 1, 1, 0.1); /* ჩრდილი */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* ჩრდილი */
   padding: 30px; /* შიგნითა დაშორება */
-  color: #050303; /* ტექსტის ფერი */
+  color: #dedada; /* ტექსტის ფერი */
   font-family: Arial, sans-serif; /* ფონტი */
 }
 
 /* სათაურის სტილები */
 .intro-description h1 {
   font-size: 2.5rem; /* სათაურის ზომა */
-  color: #000000; /* ტექსტის მწვანე ფერი */
+  color: #ece5e5; /* ტექსტის მწვანე ფერი */
   margin-bottom: 20px; /* დაშორება სათაურის და ტექსტის შორის */
 }
 
@@ -165,7 +173,7 @@ nav a:active {
 .intro-description p {
   font-size: 1.2rem; /* ტექსტის ზომა */
   line-height: 1.6; /* ტექსტის სიმაღლე ხაზებს შორის */
-  color: #000000; /* ტექსტის ღია ნაცრისფერი ფერი */
+  color: #ffffff; /* ტექსტის ღია ნაცრისფერი ფერი */
 }
 
 .video-gallery {
@@ -263,6 +271,21 @@ nav a:active {
   text-align: center;
 }
 
+.video-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card.highlight {
+  transform: scale(1.05); /* ოდნავ გადიდება */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* ჩრდილი */
+  border: 2px solid #4caf50; /* მწვანე ჩარჩო */
+}
+
+.video-description {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
 .scroll-btn {
   position: absolute;
   top: 50%;
@@ -285,102 +308,80 @@ nav a:active {
   right: 10px;
 }
 
-/* ნიუსების სექცია */
+/* News Section სტილები */
 .news-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2-3 სვეტი ავტომატურად */
-  gap: 20px; /* დაშორება ელემენტებს შორის */
-  margin: 50px auto; /* ცენტრირება და დაშორება ზემოდან/ქვემოდან */
-  max-width: 1200px; /* სექციის სიგანის შეზღუდვა */
-  padding: 20px;
+  display: grid; /* Grid Layout */
+  grid-template-columns: repeat(4, 1fr); /* თითო ხაზზე 4 სვეტი */
+  gap: 20px; /* დაშორება ბლოკებს შორის */
+  padding: 40px; /* სექციის შიდა დაშორება */
+  background-color: #f5f5f5; /* ფონის ღია ფერი */
+  box-sizing: border-box;
 }
 
-/* თითოეული ნიუსის სტილები */
+/* თითოეული ნიუს ბლოკი */
 .news-item {
-  background: #ffffff; /* ფონური ფერი */
+  position: relative;
+  overflow: hidden; /* სურათის ჩარჩოში მოქცევა */
   border-radius: 10px; /* მომრგვალებული კუთხეები */
-  overflow: hidden; /* ზედმეტის მოჭრა */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ჩრდილი */
-  display: flex;
-  flex-direction: column; /* ვერტიკალური განლაგება */
-  align-items: center;
-  text-align: center; /* ტექსტის ცენტრირება */
+  background-color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* ანიმაცია ჰოვერისთვის */
 }
 
-/* ნიუსის სურათი */
+/* ჰოვერის ეფექტი ნიუს ბლოკისთვის */
+.news-item:hover {
+  transform: scale(1.05); /* ზომის გაზრდა */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* უფრო ძლიერი ჩრდილი */
+}
+
+/* სურათის სტილები */
 .news-item img {
-  width: 100%; /* სურათის სიგანე კონტეინერის მიხედვით */
-  height: 200px; /* სტატიკური სიმაღლე */
-  object-fit: cover; /* პროპორციული შევსება */
+  width: 100%; /* სურათის სრული სიგანე */
+  height: 500px; /* ფიქსირებული სიმაღლე */
+  object-fit: cover; /* სურათის ჩარჩოში შეხამება */
+  transition: transform 0.3s ease; /* სურათის ჰოვერის ანიმაცია */
 }
 
-/* ნიუსის ტექსტის სექცია */
+/* სურათის ჰოვერის ეფექტი */
+.news-item:hover img {
+  transform: scale(1.1); /* სურათის ზომის გაზრდა ჰოვერისას */
+}
+
+/* ტექსტის კონტეინერი */
 .news-content {
-  padding: 15px; /* შიდა დაშორება */
+  padding: 15px; /* შიდა დაშორება ტექსტისთვის */
+  text-align: center; /* ტექსტის ცენტრირება */
+  transition: transform 0.3s ease; /* ტექსტის მოძრაობის ანიმაცია */
 }
 
 /* სათაურის სტილები */
 .news-content h3 {
-  font-size: 1.5rem; /* ტექსტის ზომა */
-  color: #333333; /* ტექსტის ფერი */
-  margin-bottom: 10px; /* დაშორება ქვემოთ */
+  font-size: 1.5rem; /* სათაურის ზომა */
+  color: #333; /* ტექსტის ფერი */
+  margin-bottom: 10px;
+  transition: transform 0.3s ease, color 0.3s ease; /* ანიმაცია ჰოვერისთვის */
 }
 
-/* მოკლე აღწერის სტილები */
+/* ტექსტის სტილები */
 .news-content p {
-  font-size: 1rem; /* ტექსტის ზომა */
-  color: #666666; /* ტექსტის ღია ფერი */
-  line-height: 1.5; /* ხაზებს შორის დაშორება */
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+  transition: transform 0.3s ease, color 0.3s ease; /* ანიმაცია ჰოვერისთვის */
 }
 
-/* რესპონსიული დიზაინი ტაბლეტისთვის */
-@media (max-width: 768px) {
-  .news-section {
-      grid-template-columns: 1fr; /* 1 სვეტი მობილურ მოწყობილობებზე */
-  }
-  .news-item img {
-      height: 150px; /* სურათის სიმაღლე შემცირდეს */
-  }
-  .news-content h3 {
-      font-size: 1.3rem; /* სათაურის ზომის შემცირება */
-  }
-  .news-content p {
-      font-size: 0.9rem; /* ტექსტის ზომის შემცირება */
-  }
+/* ჰოვერის ეფექტი ტექსტისთვის */
+.news-item:hover .news-content h3,
+.news-item:hover .news-content p {
+  transform: scale(1.1); /* ტექსტის ზომის გაზრდა */
+  color: #040506; /* ტექსტის ფერის შეცვლა */
 }
 
 
-/* News Section */
-.news-section {
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
 
-.news-item {
-  border: 1px solid #ddd;
-  padding: 15px;
-  border-radius: 5px;
-  background-color: #f9f9f9;
 
-  text-decoration: none; /* ხაზის წაშლა ტექსტის ქვეშ */
-  color: black; /* ტექსტის საწყისი ფერი */
-  font-size: 1.3rem; /* ტექსტის ზომა */
-  font-weight: bold; /* სქელი ასოები */
-  transition: color 0.3s ease; /* გლუვი გადასვლა ფერის ცვლილებისას */
-}
 
-.news-item {
-  opacity: 0; /* საწყისად უხილავი */
-  transform: translateY(20px); /* დაბლა სქროლული */
-  transition: opacity 0.6s ease, transform 0.6s ease; /* გლუვი გადასვლა */
-}
 
-.news-item.visible {
-  opacity: 1; /* ხილვადი */
-  transform: translateY(0); /* ნორმალური პოზიცია */
-}
 
 /* Footer */
 footer {

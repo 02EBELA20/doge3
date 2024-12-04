@@ -138,104 +138,217 @@ nav a:active {
   height: auto; /* პროპორციის შენარჩუნება */
   border: 5px solid #ddd;
   border-radius: 10px;
+  margin-bottom: 50px;
 }
 
-/* Video Section */
-.video-section {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
+/* სტილები მთავარი ტექსტისთვის */
+.intro-description {
+  text-align: center; /* ტექსტის ცენტრირება */
+  margin: 50px auto; /* დაშორება ზემოდან და ქვემოდან */
+  max-width: 800px; /* ტექსტის კონტეინერის სიგანე */
+
+  border-radius: 10px; /* კონტეინერის კუთხეების მომრგვალება */
+  box-shadow: 0 4px 8px rgba(3, 1, 1, 0.1); /* ჩრდილი */
+  padding: 30px; /* შიგნითა დაშორება */
+  color: #050303; /* ტექსტის ფერი */
+  font-family: Arial, sans-serif; /* ფონტი */
 }
-/* ვიდეო სექციის სტილები */
-.video-section {
+
+/* სათაურის სტილები */
+.intro-description h1 {
+  font-size: 2.5rem; /* სათაურის ზომა */
+  color: #000000; /* ტექსტის მწვანე ფერი */
+  margin-bottom: 20px; /* დაშორება სათაურის და ტექსტის შორის */
+}
+
+/* ტექსტის სტილები */
+.intro-description p {
+  font-size: 1.2rem; /* ტექსტის ზომა */
+  line-height: 1.6; /* ტექსტის სიმაღლე ხაზებს შორის */
+  color: #000000; /* ტექსტის ღია ნაცრისფერი ფერი */
+}
+
+.video-gallery {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 40vh; /* სრული ეკრანის სიმაღლე */
-  background-color: #f9f9f9;
-  padding: 0;
-  margin: 0;
-}
-
-.video-container {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(300px, 1fr)
-  ); /* ვიდეოები თანაბრად განაწილდეს */
-  gap: 20px; /* დაშორება ვიდეოებს შორის */
-  width: 100%; /* სექციის სრული სიგანე */
-  /* სექციის სრული სიმაღლე */
-}
-
-.video-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-.video-card video {
-  width: 100%; /* ვიდეოს სიგანე მოერგოს ბარათს */
-  height: 100%; /* ვიდეოს სიმაღლე მოერგოს ბარათს */
-  object-fit: cover; /* ვიდეო მოერგოს ჩარჩოს */
-}
-/* ვიდეო სექციის სტილები */
-.video-section {
-  margin-top: 5%;
-  width: 100%;
-  overflow: hidden; /* სქროლის დამალვა */
   position: relative;
+  overflow: hidden;
+  padding: 20px;
   background-color: green;
 }
 
 .video-container {
-  display: flex; /* ჰორიზონტალური განლაგება */
-  transition: transform 0.5s ease-in-out; /* გლუვი მოძრაობა */
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
 }
 
 .video-card {
-  flex: 0 0 33.33%; /* 3 ვიდეოს საჩვენებლად */
-  padding: 20px;
-  box-sizing: border-box;
-  background: rgb(225, 208, 208);
-  border-radius: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 30%; /* თითო ვიდეოს სიგანე ეკრანის 30%-ს დაიკავებს */
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-.video-card video {
+.video-card iframe {
   width: 100%;
-  border-radius: 20px;
-  height: auto;
+  height: 180px;
 }
 
-/* ჰორიზონტალური ცენტრირების ეფექტი */
-.video-section .prev,
-.video-section .next {
+.video-description {
+  padding: 10px;
+  text-align: center;
+}
+
+.scroll-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
   border: none;
-  padding: 10px 15px;
-  cursor: pointer;
   border-radius: 50%;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 1.5rem;
   z-index: 10;
 }
 
-.video-section .prev {
+.scroll-btn.prev {
   left: 10px;
 }
 
-.video-section .next {
+.scroll-btn.next {
   right: 10px;
 }
+.video-gallery {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+  background-color: green;
+}
+
+.video-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  gap: 20px;
+}
+
+.video-card {
+  flex: 0 0 calc(100% / 3); /* 3 ვიდეოს ეკრანზე თანაბარი განაწილება */
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-align: center;
+}
+
+.video-card iframe {
+  width: 100%;
+  height: 450px; /* ვიდეოს სიმაღლე */
+  border-radius: 10px;
+}
+
+.video-description {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 1.5rem;
+  z-index: 10;
+}
+
+.scroll-btn.prev {
+  left: 10px;
+}
+
+.scroll-btn.next {
+  right: 10px;
+}
+
+/* ნიუსების სექცია */
+.news-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2-3 სვეტი ავტომატურად */
+  gap: 20px; /* დაშორება ელემენტებს შორის */
+  margin: 50px auto; /* ცენტრირება და დაშორება ზემოდან/ქვემოდან */
+  max-width: 1200px; /* სექციის სიგანის შეზღუდვა */
+  padding: 20px;
+}
+
+/* თითოეული ნიუსის სტილები */
+.news-item {
+  background: #ffffff; /* ფონური ფერი */
+  border-radius: 10px; /* მომრგვალებული კუთხეები */
+  overflow: hidden; /* ზედმეტის მოჭრა */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ჩრდილი */
+  display: flex;
+  flex-direction: column; /* ვერტიკალური განლაგება */
+  align-items: center;
+  text-align: center; /* ტექსტის ცენტრირება */
+}
+
+/* ნიუსის სურათი */
+.news-item img {
+  width: 100%; /* სურათის სიგანე კონტეინერის მიხედვით */
+  height: 200px; /* სტატიკური სიმაღლე */
+  object-fit: cover; /* პროპორციული შევსება */
+}
+
+/* ნიუსის ტექსტის სექცია */
+.news-content {
+  padding: 15px; /* შიდა დაშორება */
+}
+
+/* სათაურის სტილები */
+.news-content h3 {
+  font-size: 1.5rem; /* ტექსტის ზომა */
+  color: #333333; /* ტექსტის ფერი */
+  margin-bottom: 10px; /* დაშორება ქვემოთ */
+}
+
+/* მოკლე აღწერის სტილები */
+.news-content p {
+  font-size: 1rem; /* ტექსტის ზომა */
+  color: #666666; /* ტექსტის ღია ფერი */
+  line-height: 1.5; /* ხაზებს შორის დაშორება */
+}
+
+/* რესპონსიული დიზაინი ტაბლეტისთვის */
+@media (max-width: 768px) {
+  .news-section {
+      grid-template-columns: 1fr; /* 1 სვეტი მობილურ მოწყობილობებზე */
+  }
+  .news-item img {
+      height: 150px; /* სურათის სიმაღლე შემცირდეს */
+  }
+  .news-content h3 {
+      font-size: 1.3rem; /* სათაურის ზომის შემცირება */
+  }
+  .news-content p {
+      font-size: 0.9rem; /* ტექსტის ზომის შემცირება */
+  }
+}
+
 
 /* News Section */
 .news-section {
@@ -323,128 +436,4 @@ footer .social-icons a {
   font-size: 2rem; /* ტექსტის ზომა */
   font-weight: bold; /* სქელი ასოები */
   transition: color 0.3s ease; /* გლუვი გადასვლა ფერის ცვლილებისას */
-}
-
-
-
-
-
-
-@media (max-width: 1024px) and (min-width: 768px) {
-  /* ვიდეო სექცია */
-  .video-container {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* უფრო ვიწრო სვეტები */
-  }
-
-  .video-card {
-      padding: 10px; /* ბარათების შიდა დაშორების შემცირება */
-  }
-
-  .video-section .prev,
-  .video-section .next {
-      padding: 8px 12px; /* ღილაკების ზომის შემცირება */
-  }
-
-  /* News Section */
-  .news-section {
-      grid-template-columns: repeat(2, 1fr); /* 2 სვეტი ტაბლეტზე */
-      gap: 15px;
-  }
-
-  .news-item {
-      font-size: 1.1rem; /* ტექსტის ზომის შემცირება */
-  }
-
-  /* Header */
-  header {
-      padding: 10px 15px; /* ჰედერის შიდა დაშორების შემცირება */
-  }
-
-  .logo img {
-      height: 70px; /* ლოგოს ზომის შემცირება */
-  }
-
-  nav a {
-      font-size: 1.5rem; /* მენიუს ტექსტის ზომის შემცირება */
-  }
-
-  /* Moving Text */
-  .moving-text {
-      font-size: 1.2rem; /* მოძრავი ტექსტის ზომის შემცირება */
-  }
-
-  /* Footer */
-  footer {
-      padding: 15px 10px; /* ფუტერის შიდა დაშორების შემცირება */
-      font-size: 0.8rem; /* ტექსტის ზომის შემცირება */
-  }
-
-  .social-icons a {
-      font-size: 1.2rem; /* სოციალური ლინკების ზომის შემცირება */
-  }
-}
-
-
-
-
-@media (max-width: 768px) {
-  /* ვიდეო სექცია */
-  .video-container {
-      grid-template-columns: 1fr; /* ერთ სვეტად ვიდეოების განლაგება */
-      gap: 10px; /* დაშორება შემცირდეს */
-  }
-
-  .video-card {
-      padding: 5px; /* ბარათის შიდა დაშორება შემცირდეს */
-  }
-
-  .video-section .prev,
-  .video-section .next {
-      padding: 6px 10px; /* ღილაკების ზომა */
-  }
-
-  /* News Section */
-  .news-section {
-      grid-template-columns: 1fr; /* ერთ სვეტად სიახლეები */
-      gap: 10px;
-  }
-
-  .news-item {
-      font-size: 1rem; /* ტექსტის ზომის შემცირება */
-      padding: 10px;
-  }
-
-  /* Header */
-  header {
-      padding: 10px; /* ჰედერის შიდა დაშორების შემცირება */
-      text-align: center; /* მენიუს და ლოგოს ცენტრირება */
-  }
-
-  .logo img {
-      height: 50px; /* ლოგოს ზომის შემცირება მობაილზე */
-  }
-
-  nav ul {
-      flex-direction: column; /* მენიუს ვერტიკალური განლაგება */
-      gap: 10px;
-  }
-
-  nav a {
-      font-size: 1.2rem; /* მენიუს ტექსტის ზომის შემცირება */
-  }
-
-  /* Moving Text */
-  .moving-text {
-      font-size: 1rem; /* მოძრავი ტექსტის ზომის შემცირება */
-  }
-
-  /* Footer */
-  footer {
-      padding: 10px; /* ფუტერის შიდა დაშორების შემცირება */
-      font-size: 0.7rem; /* ტექსტის ზომის შემცირება */
-  }
-
-  .social-icons a {
-      font-size: 1rem; /* სოციალური ლინკების ზომის შემცირება */
-  }
 }

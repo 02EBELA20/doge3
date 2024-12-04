@@ -1,169 +1,450 @@
-
-/* General Styles */
+/* ძირითადი სტილები */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fff;
+  background-color: green;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Header Styles */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background: #111;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #4caf50;
+  color: white;
+  padding: 20px;
+  position: relative;
 }
 
 .logo {
-    width: 60px;
-    animation: glow 3s infinite;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
+.logo img {
+  height: 100px;
+}
+/* ლოგოს ყვითელი ნათების ეფექტი */
+.glow-effect {
+  position: relative;
+  display: inline-block;
+  animation: glow 2s infinite; /* ანიმაციის გამოყენება */
+}
+
+.glow-effect img {
+  display: block; /* სურათის სწორი განლაგებისთვის */
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.8); /* საწყისი ყვითელი ნათება */
+  border-radius: 50px; /* ლოგოს კუთხეების რბილი ფორმა */
+}
+
+/* ანიმაცია: ნათების გაძლიერება და შესუსტება */
 @keyframes glow {
-    0% { box-shadow: 0 0 5px yellow; }
-    50% { box-shadow: 0 0 20px yellow; }
-    100% { box-shadow: 0 0 5px yellow; }
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5); /* სუსტი ნათება */
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 255, 0, 1); /* ძლიერი ნათება */
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5); /* სუსტი ნათება */
+  }
+}
+
+html,
+body {
+  overflow-x: hidden; /* ჰორიზონტალური სქროლის მთლიანად გათიშვა */
+  margin: 0; /* ნებისმიერი არასწორი მარჟინის თავიდან აცილება */
+  padding: 0; /* შიგნითა დაშორების მოხსნა */
+  width: 100%; /* ფანჯრის სრული სიგანის დაკავება */
+}
+.menu li {
+  display: inline;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+/* მენიუს სტილები */
+nav ul {
+  list-style: none; /* წერტილები წაიშალოს */
+  display: flex; /* ელემენტები გვერდიგვერდ განლაგდეს */
+  gap: 50px; /* დაშორება ელემენტებს შორის */
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none; /* ხაზის წაშლა ტექსტის ქვეშ */
+  color: black; /* ტექსტის საწყისი ფერი */
+  font-size: 2rem; /* ტექსტის ზომა */
+  font-weight: bold; /* სქელი ასოები */
+  transition: color 0.3s ease; /* გლუვი გადასვლა ფერის ცვლილებისას */
+}
+
+nav a:hover {
+  color: #ad4b0a; /* ფერი შეიცვლება მწვანეზე, როცა მაუსს მიიტან */
+}
+
+nav a:active {
+  color: #b33f1c; /* ფერი შეიცვლება ნარინჯისფერზე, როცა დააწკაპებენ */
+}
+
+/* მოძრავი ტექსტის კონტეინერი */
+.moving-text-container {
+  position: relative;
+  width: 81.6%;
+  height: 50px;
+  overflow: hidden; /* ტექსტის კონტეინერის ფარგლებს გარეთ გამოსული ტექსტი დამალოს */
+  margin-top: 10px;
+  background-color: #333; /* ფონური ფერი */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .moving-text {
-  
-  color: rgb(141, 110, 237);
-    position: absolute;
-    top: 50%;
-    left: 80px;
-    white-space: nowrap;
-    animation: moveText 10s linear infinite;
-}
-/* ტიპიური ტექსტისთვის */
-.moving-text, h1, p {
-  text-transform: uppercase; /* დიდი ასოები */
-  letter-spacing: 2px; /* ასოების შორის დაშორება */
-  font-weight: bold; /* ასოები უფრო მტკიცედ გამოიყურება */
+  white-space: nowrap;
+  display: inline-block;
+  animation: moveText 10s linear infinite;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-/* დამატებითი ფონტის სტილი */
-body {
-  font-family: 'Arial', sans-serif; /* შეგიძლია შეცვალო სხვა ფონტით */
-  font-size: 22px; /* ძირითადი ტექსტის ზომა */
-  line-height: 1.5; /* ტექსტის სიმაღლის ინტერვალი */
-}
-
+/* ანიმაცია */
 @keyframes moveText {
-    from { transform: translateX(0%); }
-    to { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%); /* მარჯვნიდან იწყებს */
+  }
+  100% {
+    transform: translateX(100%); /* მარცხნივ სრულდება */
+  }
 }
 
-/* Social Links */
-.social-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-.social-links li a {
-    text-decoration: none;
-    color: #0f0;
-}
-
-/* Hero Section */
-.hero {
-    position: relative;
-    text-align: center;
-}
-
-.hero-image {
-    width: 100%;
-    height: auto;
-}
-
-.hero h1 {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 10px #000;
-}
-
-/* Footer */
-.buy-now {
-    display: block;
-    margin: 20px auto;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    color: #fff;
-    background-color: #0f0;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.buy-now:hover {
-    background-color: #0c0;
-}
-
-.video-gallery {
+/* Main Image სტილები */
+.main-image {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin: 20px auto;
-  padding: 10px;
-  background-color: #000000;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.main-image img {
+  width: 80%; /* სურათი დაიკავებს კონტეინერის 80%-ს */
+  height: auto; /* პროპორციის შენარჩუნება */
+  border: 5px solid #ddd;
   border-radius: 10px;
+}
+
+/* Video Section */
+.video-section {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
+/* ვიდეო სექციის სტილები */
+.video-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40vh; /* სრული ეკრანის სიმაღლე */
+  background-color: #f9f9f9;
+  padding: 0;
+  margin: 0;
 }
 
 .video-container {
-  width: 300px;
-  height: 200px;
-  overflow: hidden;
-  transition: transform 0.3s, width 0.3s, height 0.3s;
-  margin: 10px;
-  background: #000000;
-  border: 2px solid #0f0;
-  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* ვიდეოები თანაბრად განაწილდეს */
+  gap: 20px; /* დაშორება ვიდეოებს შორის */
+  width: 100%; /* სექციის სრული სიგანე */
+  /* სექციის სრული სიმაღლე */
 }
 
-.video-container:hover {
-  transform: scale(1.1);
-  width: 340px;
-  height: 230px;
-}
-
-.image-text-section {
+.video-card {
   display: flex;
-  flex-direction: row; /* განლაგება ვერტიკალურად */
-  align-items: flex-start; /* ტექსტი მარცხნივ */
-  padding: 20px;
-  background-color: #000;
-  color: #fff;
-}
-
-.image-container {
-  width: 100%; /* სურათი მთელი სიგანის */
-  text-align:left;
-}
-
-.responsive-image {
-  width: 50%;
-  height: auto;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid #ddd;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-.text-container {
-  width: 30%; /* ტექსტი იკავებს ეკრანის 50%-ს */
-  margin-top: 20px;
-  text-align: left; /* ტექსტი მარცხენა მხარეს */
-  font-size: 1rem;
-  line-height: 1.6;
+.video-card video {
+  width: 100%; /* ვიდეოს სიგანე მოერგოს ბარათს */
+  height: 100%; /* ვიდეოს სიმაღლე მოერგოს ბარათს */
+  object-fit: cover; /* ვიდეო მოერგოს ჩარჩოს */
+}
+/* ვიდეო სექციის სტილები */
+.video-section {
+  margin-top: 5%;
+  width: 100%;
+  overflow: hidden; /* სქროლის დამალვა */
+  position: relative;
+  background-color: green;
 }
 
+.video-container {
+  display: flex; /* ჰორიზონტალური განლაგება */
+  transition: transform 0.5s ease-in-out; /* გლუვი მოძრაობა */
+}
+
+.video-card {
+  flex: 0 0 33.33%; /* 3 ვიდეოს საჩვენებლად */
+  padding: 20px;
+  box-sizing: border-box;
+  background: rgb(225, 208, 208);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-card video {
+  width: 100%;
+  border-radius: 20px;
+  height: auto;
+}
+
+/* ჰორიზონტალური ცენტრირების ეფექტი */
+.video-section .prev,
+.video-section .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.video-section .prev {
+  left: 10px;
+}
+
+.video-section .next {
+  right: 10px;
+}
+
+/* News Section */
+.news-section {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.news-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+
+  text-decoration: none; /* ხაზის წაშლა ტექსტის ქვეშ */
+  color: black; /* ტექსტის საწყისი ფერი */
+  font-size: 1.3rem; /* ტექსტის ზომა */
+  font-weight: bold; /* სქელი ასოები */
+  transition: color 0.3s ease; /* გლუვი გადასვლა ფერის ცვლილებისას */
+}
+
+.news-item {
+  opacity: 0; /* საწყისად უხილავი */
+  transform: translateY(20px); /* დაბლა სქროლული */
+  transition: opacity 0.6s ease, transform 0.6s ease; /* გლუვი გადასვლა */
+}
+
+.news-item.visible {
+  opacity: 1; /* ხილვადი */
+  transform: translateY(0); /* ნორმალური პოზიცია */
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+footer {
+  background-color: #333; /* ფონის ფერი */
+  color: white; /* ტექსტის ფერი */
+  text-align: center; /* ტექსტის ცენტრირება */
+  padding: 20px 0; /* შიდა დაშორება */
+  position: relative; /* სწორი პოზიციონირება */
+  width: 100%; /* სრული სიგანე */
+  margin-top: 20px; /* ზემოდან დაშორება */
+}
+
+footer .social-icons {
+  margin-bottom: 10px; /* სოციალურ ქსელებს შორის დაშორება */
+}
+
+footer .social-icons a {
+  color: white; /* სოციალური ქსელების ტექსტის ფერი */
+  text-decoration: none; /* ხაზის მოშორება */
+  margin: 0 10px; /* ელემენტებს შორის დაშორება */
+  font-size: 1.5rem; /* ზომის გაზრდა */
+}
+
+footer p {
+  font-size: 0.9rem; /* ტექსტის ზომის კონტროლი */
+}
+
+footer .social-icons a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.faq {
+  background-color: #green; /* ფონის ფერი */
+  color: white; /* ტექსტის ფერი */
+  text-align: center; /* ტექსტის ცენტრირება */
+  padding: 20px 0; /* შიდა დაშორება */
+  position: relative; /* სწორი პოზიციონირება */
+  width: 100%; /* სრული სიგანე */
+  margin-top: 20px; /* ზემოდან დაშორება */
+
+  text-decoration: none; /* ხაზის წაშლა ტექსტის ქვეშ */
+  color: black; /* ტექსტის საწყისი ფერი */
+  font-size: 2rem; /* ტექსტის ზომა */
+  font-weight: bold; /* სქელი ასოები */
+  transition: color 0.3s ease; /* გლუვი გადასვლა ფერის ცვლილებისას */
+}
+
+
+
+
+
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  /* ვიდეო სექცია */
+  .video-container {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* უფრო ვიწრო სვეტები */
+  }
+
+  .video-card {
+      padding: 10px; /* ბარათების შიდა დაშორების შემცირება */
+  }
+
+  .video-section .prev,
+  .video-section .next {
+      padding: 8px 12px; /* ღილაკების ზომის შემცირება */
+  }
+
+  /* News Section */
+  .news-section {
+      grid-template-columns: repeat(2, 1fr); /* 2 სვეტი ტაბლეტზე */
+      gap: 15px;
+  }
+
+  .news-item {
+      font-size: 1.1rem; /* ტექსტის ზომის შემცირება */
+  }
+
+  /* Header */
+  header {
+      padding: 10px 15px; /* ჰედერის შიდა დაშორების შემცირება */
+  }
+
+  .logo img {
+      height: 70px; /* ლოგოს ზომის შემცირება */
+  }
+
+  nav a {
+      font-size: 1.5rem; /* მენიუს ტექსტის ზომის შემცირება */
+  }
+
+  /* Moving Text */
+  .moving-text {
+      font-size: 1.2rem; /* მოძრავი ტექსტის ზომის შემცირება */
+  }
+
+  /* Footer */
+  footer {
+      padding: 15px 10px; /* ფუტერის შიდა დაშორების შემცირება */
+      font-size: 0.8rem; /* ტექსტის ზომის შემცირება */
+  }
+
+  .social-icons a {
+      font-size: 1.2rem; /* სოციალური ლინკების ზომის შემცირება */
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  /* ვიდეო სექცია */
+  .video-container {
+      grid-template-columns: 1fr; /* ერთ სვეტად ვიდეოების განლაგება */
+      gap: 10px; /* დაშორება შემცირდეს */
+  }
+
+  .video-card {
+      padding: 5px; /* ბარათის შიდა დაშორება შემცირდეს */
+  }
+
+  .video-section .prev,
+  .video-section .next {
+      padding: 6px 10px; /* ღილაკების ზომა */
+  }
+
+  /* News Section */
+  .news-section {
+      grid-template-columns: 1fr; /* ერთ სვეტად სიახლეები */
+      gap: 10px;
+  }
+
+  .news-item {
+      font-size: 1rem; /* ტექსტის ზომის შემცირება */
+      padding: 10px;
+  }
+
+  /* Header */
+  header {
+      padding: 10px; /* ჰედერის შიდა დაშორების შემცირება */
+      text-align: center; /* მენიუს და ლოგოს ცენტრირება */
+  }
+
+  .logo img {
+      height: 50px; /* ლოგოს ზომის შემცირება მობაილზე */
+  }
+
+  nav ul {
+      flex-direction: column; /* მენიუს ვერტიკალური განლაგება */
+      gap: 10px;
+  }
+
+  nav a {
+      font-size: 1.2rem; /* მენიუს ტექსტის ზომის შემცირება */
+  }
+
+  /* Moving Text */
+  .moving-text {
+      font-size: 1rem; /* მოძრავი ტექსტის ზომის შემცირება */
+  }
+
+  /* Footer */
+  footer {
+      padding: 10px; /* ფუტერის შიდა დაშორების შემცირება */
+      font-size: 0.7rem; /* ტექსტის ზომის შემცირება */
+  }
+
+  .social-icons a {
+      font-size: 1rem; /* სოციალური ლინკების ზომის შემცირება */
+  }
+}

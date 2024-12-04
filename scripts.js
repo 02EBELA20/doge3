@@ -37,48 +37,46 @@ window.addEventListener("resize", () => {
 // საწყისი პოზიციის დაყენება
 document.addEventListener("DOMContentLoaded", updateSlidePosition);
 
-
-
 document.querySelectorAll(".news-item").forEach((item) => {
   item.addEventListener("mouseenter", () => {
-      document.querySelectorAll(".news-item").forEach((otherItem) => {
-          if (otherItem !== item) {
-              otherItem.classList.add("dimmed");
-          }
-      });
+    document.querySelectorAll(".news-item").forEach((otherItem) => {
+      if (otherItem !== item) {
+        otherItem.classList.add("dimmed");
+      }
+    });
   });
 
   item.addEventListener("mouseleave", () => {
-      document.querySelectorAll(".news-item").forEach((otherItem) => {
-          otherItem.classList.remove("dimmed");
-      });
+    document.querySelectorAll(".news-item").forEach((otherItem) => {
+      otherItem.classList.remove("dimmed");
+    });
   });
 });
 
-
-
 document.querySelectorAll(".video-card").forEach((card) => {
   card.addEventListener("mouseenter", () => {
-      card.classList.add("highlight");
+    card.classList.add("highlight");
   });
 
   card.addEventListener("mouseleave", () => {
-      card.classList.remove("highlight");
+    card.classList.remove("highlight");
   });
 });
 
 const videos = document.querySelectorAll("iframe");
 
 videos.forEach((video) => {
-    video.addEventListener("play", () => {
-        videos.forEach((otherVideo) => {
-            if (otherVideo !== video) {
-                otherVideo.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-            }
-        });
+  video.addEventListener("play", () => {
+    videos.forEach((otherVideo) => {
+      if (otherVideo !== video) {
+        otherVideo.contentWindow.postMessage(
+          '{"event":"command","func":"pauseVideo","args":""}',
+          "*"
+        );
+      }
     });
+  });
 });
-
 
 // JavaScript კოდი ჰედერის ანიმაციისთვის
 document.addEventListener("DOMContentLoaded", () => {
@@ -90,13 +88,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ანიმაციის ფუნქცია
   function animateBackground() {
-      header.style.background = `linear-gradient(45deg, ${colors[colorIndex]}, ${
-          colors[(colorIndex + 1) % colors.length]
-      })`;
-      header.style.backgroundSize = "200% 200%";
-      header.style.animation = "backgroundAnimation 6s infinite";
+    header.style.background = `linear-gradient(45deg, ${colors[colorIndex]}, ${
+      colors[(colorIndex + 1) % colors.length]
+    })`;
+    header.style.backgroundSize = "200% 200%";
+    header.style.animation = "backgroundAnimation 6s infinite";
 
-      colorIndex = (colorIndex + 1) % colors.length;
+    colorIndex = (colorIndex + 1) % colors.length;
   }
 
   // ანიმაციის კოდი დამატებული CSS-ში

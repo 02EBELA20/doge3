@@ -30,6 +30,7 @@ body {
   justify-content: center;
   gap: 10px;
   position: relative;
+  margin-top: 100px;
 }
 
 .meme-gallery {
@@ -220,6 +221,23 @@ body {
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
+.news-item.dimmed {
+  filter: brightness(0.5); /* Dim other images */
+  transition: filter 0.3s ease;
+}
+
+.news-item.highlighted {
+  transform: scale(1.05); /* Slightly enlarge hovered image */
+  z-index: 10;
+  transition: transform 0.3s ease, z-index 0.3s ease;
+}
+
+.news-item.active {
+  transform: scale(1.1); /* Further enlarge clicked image */
+  z-index: 20;
+  box-shadow: 0 8px 16px rgba(0, 255, 0, 0.8); /* Add glow effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
 /* Highlight hovered meme */
 .meme-card.highlighted {

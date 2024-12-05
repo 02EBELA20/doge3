@@ -1264,3 +1264,5 @@ opacity:  0.5;
 cursor:  not-allowed;
   
 }
+
+Content-Security-Policy: frame-ancestors 'self';

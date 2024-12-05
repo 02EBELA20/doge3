@@ -189,9 +189,10 @@ body {
 .meme-section {
   height: 600px;
   padding-top: 110px;
-  background-color: #1a1a1a;
+  background-color: rgba(0, 0, 0, 0.058); /* ნახევრად გამჭვირვალე შავი */
   color: white;
   text-align: center;
+}
 }
 
 .section-title {
@@ -199,6 +200,39 @@ body {
   margin-bottom: 20px;
   color: orange;
 }
+
+/* Hover Effect: Highlight hovered video */
+.video-card.highlighted {
+  transform: scale(1.1); /* Increase size */
+  z-index: 10;
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.8);
+}
+
+/* Dim other videos */
+.video-card.dimmed {
+  opacity: 0.5;
+}
+
+/* Show and hide description */
+.video-description {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+
+/* Highlight hovered meme */
+.meme-card.highlighted {
+  transform: scale(1.1);
+  z-index: 10;
+  box-shadow: 0 8px 16px rgba(255, 255, 0, 0.7);
+}
+
+/* Dim other memes */
+.meme-card.dimmed {
+  opacity: 0.5;
+}
+
 
 .meme-carousel {
   display: flex;
@@ -213,6 +247,8 @@ body {
   overflow: hidden;
   width: 80%; /* Adjusts width for responsive behavior */
   scroll-behavior: smooth;
+
+  
 }
 
 .meme-card {
@@ -230,7 +266,7 @@ body {
 
 .meme-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 16px rgba(215, 8, 8, 0.5);
 }
 
 .meme-card.active {
@@ -238,6 +274,8 @@ body {
   z-index: 10;
   box-shadow: 0 12px 24px rgba(255, 255, 255, 0.8);
 }
+
+
 
 .nav-btn {
   background-color: orange;

@@ -164,3 +164,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const memeCards = document.querySelectorAll(".meme-card");
+    const videos = document.querySelectorAll("iframe");
+
+    memeCards.forEach((card) => {
+        card.addEventListener("click", () => {
+            document.body.classList.toggle("dimmed");
+        });
+    });
+
+    videos.forEach((video) => {
+        video.addEventListener("play", () => {
+            videos.forEach((v) => {
+                if (v !== video) {
+                    v.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                }
+            });
+        });
+    });
+});

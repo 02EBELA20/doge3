@@ -186,3 +186,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const header = document.querySelector("header");
+
+    menuToggle.addEventListener("click", () => {
+        header.classList.toggle("menu-open"); /* ღილაკზე დაჭერისას მენიუს ჩვენება/დამალვა */
+    });
+});

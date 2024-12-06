@@ -1148,3 +1148,111 @@ cursor:  not-allowed;
 
 Content-Security-Policy: frame-ancestors 'self';
 
+
+
+/* General styles for desktop remain the same */
+
+/* Tablet (768px and smaller) */
+@media screen and (max-width: 768px) {
+  header nav ul {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .moving-text-container {
+      width: 90%;
+      font-size: 1rem;
+  }
+
+  .intro-description {
+      padding: 15px;
+      max-width: 90%;
+      font-size: 1rem;
+  }
+
+  /* Two videos/images per row */
+  .videos .video,
+  .news-item {
+      width: 45%; /* Two items per row */
+      margin-bottom: 20px;
+  }
+
+  .news-item img {
+      width: 100%; /* Make images responsive */
+      height: auto;
+  }
+
+  .faq h2 {
+      font-size: 1.5rem; /* Reduce font size */
+  }
+
+  .faq p {
+      font-size: 1rem;
+  }
+}
+
+/* Default styling remains the same */
+
+/* Mobile (480px and smaller) */
+@media screen and (max-width: 480px) {
+  /* Header adjustments */
+  header nav ul {
+      flex-direction: column;
+      gap: 5px;
+      font-size: 1rem;
+  }
+
+  .moving-text-container {
+      width: 100%;
+      padding: 5px;
+      font-size: 0.9rem;
+  }
+
+  /* Main Image and Logo */
+  .main-image {
+      position: relative;
+      text-align: center;
+  }
+
+  .main-image img {
+      width: 100%;
+      height: auto;
+  }
+
+  .loggo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px; /* Adjust logo size */
+      height: auto;
+  }
+
+  /* Videos Section */
+  .videos .video {
+      width: 100%; /* Full-width videos */
+      margin-bottom: 20px;
+  }
+
+  /* Images Section */
+  .news-item {
+      width: 100%; /* Full-width images */
+      margin-bottom: 20px;
+  }
+
+  .news-item img {
+      width: 100%; /* Make images responsive */
+      height: auto;
+  }
+
+  /* Vertically scrollable memes */
+  .meme-gallery {
+      display: block;
+      gap: 0;
+  }
+
+  .meme-card {
+      margin-bottom: 20px;
+      flex: none;
+  }
+}

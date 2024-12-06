@@ -291,15 +291,8 @@ nav a:hover  {
 .dimmed  {
   opacity:  0.5;
 }
-.logo  {
-  margin-bottom:  20px;
-  display:  flex;
-  align-items:  center;
-  gap:  10px;
-}
-.logo img  {
-  height:  100px;
-}
+
+
 .main-image  {
   position:  relative;
   width:  100%;
@@ -308,25 +301,15 @@ nav a:hover  {
   width:  100%;
   height:  auto;
 }
-.logo-on-image  {
-  position:  absolute;
-  width:  300px;
-  height:  ;
-  border-radius:  50%;
-}
-.loggo  {
-  position:  absolute;
-  border-radius:  50%;
-  overflow:  hidden;
-  transform:  translate(-50%,  -50%);
-}
+
+
 .loggo  {
   position:  absolute;
   width:  280px;
   height:  280px;
   border-radius:  50%;
   overflow:  hidden;
-  top:  30%;
+  top:  50%;
   left:  49%;
   transform:  translate(-50%,  -50%);
   box-shadow:  0 0 30px 10px rgba(0,  255,  0,  0.8);

@@ -141,3 +141,26 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const memeGallery = document.querySelector('.meme-gallery');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    const scrollAmount = 300; // რამდენი პიქსელით უნდა ისქროლოს ღილაკზე დაჭერისას
+
+    // ღილაკზე დაჭერის მოვლენები
+    prevBtn.addEventListener('click', () => {
+        memeGallery.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth',
+        });
+    });
+
+    nextBtn.addEventListener('click', () => {
+        memeGallery.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth',
+        });
+    });
+});

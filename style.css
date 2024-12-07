@@ -1226,6 +1226,7 @@ Content-Security-Policy: frame-ancestors 'self';
       transform: translate(-50%, -50%);
       width: 100px; /* Adjust logo size */
       height: auto;
+      
   }
 
   /* Videos Section */

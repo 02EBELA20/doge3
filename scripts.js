@@ -65,3 +65,33 @@ document.querySelectorAll('.faq-question').forEach((button) => {
         }
     });
 });
+
+
+document.getElementById('burgerMenu').addEventListener('click', function () {
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu.style.display === 'flex') {
+        mobileMenu.style.display = 'none';
+    } else {
+        mobileMenu.style.display = 'flex';
+    }
+});
+
+
+const memeWrapper = document.getElementById("memeWrapper");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+let scrollPosition = 0;
+const memeWidth = memeWrapper.querySelector(".meme-item").offsetWidth + 20; // Item width + gap
+
+prevBtn.addEventListener("click", () => {
+  scrollPosition = Math.min(scrollPosition + memeWidth, 0); // Prevent scrolling beyond start
+  memeWrapper.style.transform = `translateX(${scrollPosition}px)`;
+});
+
+nextBtn.addEventListener("click", () => {
+  const maxScroll =
+    -(memeWrapper.scrollWidth - memeWrapper.clientWidth); // Calculate max scroll
+  scrollPosition = Math.max(scrollPosition - memeWidth, maxScroll); // Prevent scrolling beyond end
+  memeWrapper.style.transform = `translateX(${scrollPosition}px)`;
+});

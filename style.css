@@ -97,13 +97,16 @@ main {
   flex-wrap: wrap; /* Allows videos to wrap to the next line */
   justify-content: space-between; /* Space between items */
   gap: 20px; /* Space between videos */
+  
 }
+
 
 /* Video Item */
 .video-item {
   flex: 1 1 calc(25% - 20px); /* Each video takes up 25% of the width minus the gap */
   max-width: calc(25% - 20px); /* Ensure items stay within the grid */
   height: 500px; /* Fixed height */
+  height: 400px; /* Fixed height */
   background: white; /* White background for each video item */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
@@ -209,6 +212,7 @@ header {
   transform: translate(-50%, -50%);
   width: 225px;
   height: 225px;
+  width: 190px;
   height: 190px;
   border-radius: 50%;
   box-shadow: 0 0 20px 10px rgba(255, 255, 0, 0.8);
@@ -262,7 +266,7 @@ header {
   justify-content: space-between; /* Space between navigation and social icons */
   align-items: center;
   padding: 10px 5%;
-  height: 80px;
+  height: 50px;
 }
 
 /* Navigation Menu */
@@ -317,7 +321,7 @@ nav ul li a:hover {
   
   width: 100%; /* 60% of horizontal space */
  
-  padding: 20px 20px; /* Add padding for a cleaner look */
+  padding: 0px 20px; /* Add padding for a cleaner look */
   background: linear-gradient(90deg, #6a11cb, #2575fc, #43cea2, #185a9d); /* Gradient background */
   background-size: 400% 400%;
   animation: background-change 8s infinite; /* Background animation */
@@ -743,3 +747,290 @@ footer p {
   opacity: 0.8;
 }
 
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  position: relative;
+}
+
+/* Desktop Menu */
+.desktop-menu {
+  display: flex; /* Visible by default */
+  justify-content: space-around;
+  list-style: none;
+}
+
+.desktop-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+.desktop-menu a:hover {
+  background-color: #45a049;
+  border-radius: 5px;
+}
+
+/* Mobile Burger Menu */
+.burger-menu {
+  
+  font-size: 24px;
+  cursor: pointer;
+  display: none; /* Hidden by default */
+}
+
+.mobile-menu {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background-color: #4CAF50;
+  width: 100%;
+  z-index: 1000;
+}
+
+.mobile-menu a {
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid #ddd;
+}
+
+.mobile-menu a:hover {
+  background-color: #45a049;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo-overlay{
+    width: 70px;
+    height: 70px;
+  }
+  /* Default Layout: 4 videos per row */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 videos per row */
+  gap: 20px; /* Space between videos */
+}
+
+/* Responsive Layout: Maximum 2 videos per row */
+@media (max-width: 1024px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 videos per row */
+  }
+}
+
+/* For smaller screens: 1 video per row */
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr; /* 1 video per row */
+  }
+}
+
+}
+.video-item{
+  max-width: calc(100%);
+}
+  
+  .desktop-menu {
+      display: none; /* Hide desktop menu on mobile */
+  }
+
+  .burger-menu {
+      display: block; /* Show burger menu on mobile */
+  }
+
+  .mobile-menu {
+      display: none; /* Hidden by default, shown with JS */
+  }
+  .header-container{display: none;}
+  
+
+  .burger-menu-container {
+    display: flex; /* Enables Flexbox */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    width: 100%; /* Full width of the container */
+    height: 100vh; /* Full height of the viewport */
+    background: #4caf50; /* Optional background color for visual clarity */
+  }
+  
+  .burger-menu {
+    font-size: 20px; /* Adjust burger menu size */
+    color: white; /* Optional color */
+    cursor: pointer; /* Indicates interactivity */
+  }
+  
+ 
+
+.burger-menu{display: flex;
+justify-content: center;}
+
+
+
+@media (min-width: 769px) {
+  
+
+  
+  
+  .burger-menu,
+  .mobile-menu {
+      display: none; /* Hide mobile menu on desktop */
+  }
+
+  .desktop-menu {
+      display: flex; /* Show desktop menu on desktop */
+  }
+  
+
+}
+
+
+
+/* Default styles (mobile-first approach) */
+.responsive-box {
+  width: 100%;
+  padding: 20px;
+  background-color: lightblue;
+  color: black;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Desktop-specific styles */
+@media (min-width: 1024px) {
+  .responsive-box {
+      width: 50%; /* Adjust width for desktop */
+      margin: 20px auto; /* Center the box */
+      background-color: lightgreen; /* Change background color */
+      color: white; /* Change text color */
+      font-size: 20px; /* Increase font size */
+      border: 2px solid darkgreen; /* Add a border */
+      border-radius: 10px; /* Add rounded corners */
+  }
+ .header-mobile{
+  display: none;
+ }
+}
+
+
+.meme-carousel {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.meme-wrapper {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.meme-item {
+  flex: 0 0 calc(50% - 20px); /* Two items per view */
+  max-width: calc(50% - 20px);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.meme-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+.carousel-btn.left {
+  left: 10px;
+}
+
+.carousel-btn.right {
+  right: 10px;
+}
+
+@media (min-width: 769px) {
+  .carousel-btn {
+    display: none; /* Hide buttons on larger screens */
+  }
+
+  .meme-wrapper {
+    gap: 10px;
+  }
+
+  .meme-item {
+    flex: 0 0 calc(25% - 10px); /* 4 items per view for desktop */
+    max-width: calc(25% - 10px);
+  }
+}
+ /* Meme Section Styles */
+.meme-carousel {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping */
+  justify-content: center; /* Center align memes */
+  gap: 20px; /* Space between memes */
+}
+
+.meme-item {
+  width: 250px; /* Fixed width */
+  height: 250px; /* Fixed height */
+  background: none; /* Remove background */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Crop overflowed parts of images */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.meme-item img {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Crop and center image */
+  display: block; /* Remove inline-block gaps */
+}

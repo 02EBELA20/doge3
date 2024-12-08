@@ -997,7 +997,7 @@ justify-content: center;}
   }
 
   .meme-wrapper {
-    gap: 10px;
+    gap:10px;
   }
 
   .meme-item {
@@ -1013,7 +1013,7 @@ justify-content: center;}
   background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
   border-radius: 15px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  max-width: 90%;
+  max-width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1039,4 +1039,9 @@ justify-content: center;}
   height: 100%; /* Full height */
   object-fit: cover; /* Crop and center image */
   display: block; /* Remove inline-block gaps */
+}
+
+.logo-overlay{
+  width: 200px;
+  height: 200px;
 }

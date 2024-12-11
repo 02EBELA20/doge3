@@ -79,6 +79,47 @@ main {
   padding: 20px;
 }
 
+
+.coin-info-section {
+  margin: 60px auto; /* Center alignment with spacing */
+  padding: 20px;
+  max-width: 57%; /* Adjust section width */
+  background: rgba(255, 255, 255, 0.2); /* Light transparent background */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center;
+  line-height: 1.6; /* Better line spacing */
+}
+
+.coin-info-section h2 {
+  font-size: 2em;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: #11998e; /* Green gradient theme */
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.coin-info-section p {
+  font-size: 1.2em;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.coin-info-section .call-to-action {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #185a9d; /* Blueish tone for call-to-action text */
+}
+
+.coin-info-section .call-to-action strong {
+  color: #38ef7d; /* Highlight key text in green */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
 /* Video Section */
 .video-section {
   margin-top: 60px;
@@ -134,6 +175,33 @@ main {
   font-weight: bold;
 }
 
+
+.divider-section {
+  margin: 50px auto;
+  padding: 20px;
+  max-width: 62%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.9));
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.divider-section h2 {
+  font-size: 1.8em;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: #185a9d; /* Blue-green theme */
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.divider-section p {
+  font-size: 1.2em;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
 
 
 

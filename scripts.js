@@ -167,3 +167,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+document.querySelectorAll('.image-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const overlay = document.querySelector('.fullscreen-overlay');
+    const overlayContent = overlay.querySelector('.fullscreen-content');
+    const overlayText = overlay.querySelector('.fullscreen-text');
+
+    // Set the image and text for the overlay
+    const img = item.querySelector('img').src;
+    const text = item.querySelector('p').textContent;
+
+    overlayContent.src = img;
+    overlayText.textContent = text;
+
+    // Show the overlay
+    overlay.classList.add('active');
+  });
+});
+
+// Close fullscreen
+document.querySelector('.fullscreen-close').addEventListener('click', () => {
+  const overlay = document.querySelector('.fullscreen-overlay');
+  overlay.classList.remove('active');
+});

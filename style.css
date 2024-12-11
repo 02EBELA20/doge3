@@ -14,7 +14,9 @@ body {
   background-color: #f4f4f4;
   overflow-x: hidden;
 }
-
+.header-mobile{
+  display: none;
+}
 /* General Reset */
 * {
   margin: 0;
@@ -48,7 +50,6 @@ body {
 
 /* Header */
 header {
-  
   width: 100%;
   position: sticky;
   top: 0;
@@ -250,6 +251,7 @@ header {
 
 /* General Header Styles */
 header {
+  display: none;
   width: 100%;
   position: sticky; /* Sticky header on scroll */
   top: 0;
@@ -512,7 +514,7 @@ body {
   background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
   border-radius: 15px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow */
-  max-width: 90%;
+  max-width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -535,7 +537,7 @@ body {
 .meme-item {
   flex: 0 1 calc(16.66% - 20px); /* Take up 1/6th of the row minus gap */
   max-width: calc(16.66% - 20px); /* Same as flex value */
-  height: 300px; /* Fixed height */
+  height: 260px; /* Fixed height */
   background: white; /* White background for each meme item */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
@@ -779,29 +781,80 @@ header {
   border-radius: 5px;
 }
 
-/* Mobile Burger Menu */
+  
+
+
+
+/* For smaller screens: 1 video per row */
+@media (max-width: 768px) {
+  header{display: block;}
+  .logo-overlay {
+    width: 70px !important;
+    height: 70px !important;
+}
+ 
+@media (max-width: 768px) {
+  .video-section{
+    margin-top: 100px;
+  }
+  
+  .video-grid {
+    margin-top: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* ორ სვეტში ვიდეოები */
+    gap: 20px; /* დაშორება ვიდეოებს შორის */
+    justify-content: center; /* ცენტრში განლაგება */
+  }
+
+  .video-item {
+    flex: 1 1 45%; /* თითო ვიდეოს სიგანე დაახლოებით ნახევარი */
+    max-width: 100%; /* ვიდეოს სიგანე არ უნდა სცილდებოდეს კონტეინერს */
+    margin: 0 auto; /* ცენტრში ვიდეოები */
+    height: 250px;
+  }
+}
+
+
+
+.header-container{display: none;}
+
+
+/* ბურგერის ღილაკის სტილი */
 .burger-menu {
   
   font-size: 24px;
   cursor: pointer;
-  display: none; /* Hidden by default */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 40px;
+  background: #4caf50;
+  color: white;
+  border-radius: 5px;
+  margin: 10px auto;
 }
 
+/* მობილური მენიუს სტილი */
 .mobile-menu {
-  display: none; /* Hidden by default */
+  display: none; /* ნაგულისხმევად დამალული */
   flex-direction: column;
   position: absolute;
-  top: 50px;
+  top: 60px;
   left: 0;
-  background-color: #4CAF50;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 10px 0;
   z-index: 1000;
 }
 
 .mobile-menu a {
-  padding: 10px;
   color: white;
+  font-size: 18px;
   text-decoration: none;
+  padding: 15px;
+  text-align: center;
   border-bottom: 1px solid #ddd;
 }
 
@@ -810,90 +863,6 @@ header {
 }
 
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .logo-overlay{
-    width: 70px;
-    height: 70px;
-  }
-  /* Default Layout: 4 videos per row */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 videos per row */
-  gap: 20px; /* Space between videos */
-}
-
-/* Responsive Layout: Maximum 2 videos per row */
-@media (max-width: 1024px) {
-  .video-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 videos per row */
-  }
-}
-
-/* For smaller screens: 1 video per row */
-@media (max-width: 768px) {
-  .video-grid {
-    grid-template-columns: 1fr; /* 1 video per row */
-  }
-}
-
-}
-.video-item{
-  max-width: calc(100%);
-}
-  
-  .desktop-menu {
-      display: none; /* Hide desktop menu on mobile */
-  }
-
-  .burger-menu {
-      display: block; /* Show burger menu on mobile */
-  }
-
-  .mobile-menu {
-      display: none; /* Hidden by default, shown with JS */
-  }
-  .header-container{display: none;}
-  
-
-  .burger-menu-container {
-    display: flex; /* Enables Flexbox */
-    justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
-    width: 100%; /* Full width of the container */
-    height: 100vh; /* Full height of the viewport */
-    background: #4caf50; /* Optional background color for visual clarity */
-  }
-  
-  .burger-menu {
-    font-size: 20px; /* Adjust burger menu size */
-    color: white; /* Optional color */
-    cursor: pointer; /* Indicates interactivity */
-  }
-  
- 
-
-.burger-menu{display: flex;
-justify-content: center;}
-
-
-
-@media (min-width: 769px) {
-  
-
-  
-  
-  .burger-menu,
-  .mobile-menu {
-      display: none; /* Hide mobile menu on desktop */
-  }
-
-  .desktop-menu {
-      display: flex; /* Show desktop menu on desktop */
-  }
-  
-
-}
 
 
 
@@ -907,32 +876,10 @@ justify-content: center;}
   font-size: 16px;
 }
 
-/* Desktop-specific styles */
-@media (min-width: 1024px) {
-  .responsive-box {
-      width: 50%; /* Adjust width for desktop */
-      margin: 20px auto; /* Center the box */
-      background-color: lightgreen; /* Change background color */
-      color: white; /* Change text color */
-      font-size: 20px; /* Increase font size */
-      border: 2px solid darkgreen; /* Add a border */
-      border-radius: 10px; /* Add rounded corners */
-  }
- .header-mobile{
-  display: none;
- }
-}
 
-.header-container {
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 5%;
-  height: 80px;
-}
 .meme-carousel {
   margin-top: 40px;
-  padding: 20px;
+  padding: 20px ;
   text-align: center;
   background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
   border-radius: 15px;
@@ -952,13 +899,12 @@ justify-content: center;}
 
 .meme-wrapper {
   display: flex;
-  gap: 20px;
   transition: transform 0.5s ease-in-out;
 }
 
 .meme-item {
-  flex: 0 0 calc(50% - 20px); /* Two items per view */
-  max-width: calc(50% - 20px);
+  flex: 0 0 calc(30% - 20px); /* Two items per view */
+  max-width: calc(30% - 20px);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -991,29 +937,15 @@ justify-content: center;}
   right: 10px;
 }
 
-@media (min-width: 769px) {
-  .carousel-btn {
-    display: none; /* Hide buttons on larger screens */
-  }
 
-  .meme-wrapper {
-    gap:10px;
-  }
-
-  .meme-item {
-    flex: 0 0 calc(25% - 10px); /* 4 items per view for desktop */
-    max-width: calc(25% - 10px);
-  }
-}
  /* Meme Section Styles */
 .meme-carousel {
   margin-top: 40px;
-  padding: 20px;
   text-align: center;
   background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
   border-radius: 15px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  max-width: 80%;
+  max-width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1023,15 +955,17 @@ justify-content: center;}
   flex-wrap: wrap; /* Allows wrapping */
   justify-content: center; /* Center align memes */
   gap: 20px; /* Space between memes */
+  
 }
 
 .meme-item {
-  width: 250px; /* Fixed width */
-  height: 250px; /* Fixed height */
+  /* Fixed width */
+  height: 120px; /* Fixed height */
   background: none; /* Remove background */
   border-radius: 10px; /* Rounded corners */
   overflow: hidden; /* Crop overflowed parts of images */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  
 }
 
 .meme-item img {
@@ -1044,4 +978,82 @@ justify-content: center;}
 .logo-overlay{
   width: 170px;
   height: 170px;
+}
+
+.faq-section {
+  margin: 50px auto;
+  padding: 20px;
+  max-width: 90%;
+  background: rgba(6, 4, 4, 0.2); /* Semi-transparent white */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-section h2 {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 25px;
+  color: #c0e1de; /* Bright green color for title */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.faq-container {
+  margin-top: 20px;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2); /* Slightly more transparent */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.faq-question {
+  width: 100%;
+  background: #38ef7d; /* Gradient green */
+  color: #000000;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 15px 20px;
+  text-align: left;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+  background: #11998e;
+}
+
+.faq-answer {
+  display: none;
+  padding: 15px 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  color: #333;
+  line-height: 1.5;
+  background: rgba(240, 240, 240, 0.7); /* Semi-transparent answer background */
+  border-radius: 8px;
+}
+
+
+footer {
+  background: linear-gradient(135deg, #38ef7d, #11998e); /* Gradient for footer */
+  color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+
+
 }

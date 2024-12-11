@@ -168,5 +168,18 @@ document.addEventListener("DOMContentLoaded", () => {
       burgerMenu.style.transform = "rotate(0deg)";
     });
   });
-  
-  
+ 
+
+  // ბურგერის მენიუს გახსნა/დახურვა
+document.addEventListener("DOMContentLoaded", () => {
+  const burgerMenu = document.getElementById("burgerMenu");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  burgerMenu.addEventListener("click", () => {
+    if (mobileMenu.style.display === "flex") {
+      mobileMenu.style.display = "none";
+    } else {
+      mobileMenu.style.display = "flex";
+    }
+  });
+});

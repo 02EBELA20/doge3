@@ -71,12 +71,30 @@ header {
   }
 }
 
+.center-text {
+  font-size: 2.2rem; /* Adjust size as needed */
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: green; /* White text */
+  
+  padding: 50px;
+  
+  margin: 0 auto;
+  width: 60%; /* Full-width section */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for a polished look */
+  margin-top: 80px;
+}
+
+
 /* Main Content */
 main {
+  
   margin-top: 140px;
   position: relative;
   z-index: 1; /* Keeps content visible above the background */
-  padding: 20px;
+  
+
 }
 
 
@@ -1042,6 +1060,22 @@ header {
 
 
 .header-container{display: none;}
+
+
+.center-text {
+  font-size: 1.5rem; /* Adjust size as needed */
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: green; /* White text */
+  
+  padding: 50px;
+  
+  margin: 0 auto;
+  width: 90%; /* Full-width section */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for a polished look */
+  margin-top: 80px;
+}
 
 .coin-info-section {
   margin: 60px auto; /* Center alignment with spacing */

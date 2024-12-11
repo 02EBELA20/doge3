@@ -1,194 +1,107 @@
-// Burger menu functionality
 document.addEventListener('DOMContentLoaded', () => {
-  const burgerMenu = document.getElementById('burgerMenu'); // ბურგერის ღილაკი
-  const mobileMenu = document.getElementById('mobileMenu'); // მობილური მენიუ
+  // Burger menu functionality
+  const burgerMenu = document.getElementById('burgerMenu');
+  const mobileMenu = document.getElementById('mobileMenu');
 
-  // ბურგერის ღილაკის დაჭერის ფუნქცია
   burgerMenu.addEventListener('click', () => {
-    if (mobileMenu.style.display === 'flex') {
-      mobileMenu.style.display = 'none'; // მენიუს დამალვა
-    } else {
-      mobileMenu.style.display = 'flex'; // მენიუს ჩვენება
-      mobileMenu.style.flexDirection = 'column'; // ვერტიკალური განლაგება
-    }
+    const isVisible = mobileMenu.style.display === 'flex';
+    mobileMenu.style.display = isVisible ? 'none' : 'flex';
+    if (!isVisible) mobileMenu.style.flexDirection = 'column';
   });
-});
 
-
-document.addEventListener("DOMContentLoaded", () => {
-  const videoItems = document.querySelectorAll(".video-item");
-
+  // Video hover functionality
+  const videoItems = document.querySelectorAll('.video-item');
   videoItems.forEach((videoItem) => {
-    const video = videoItem.querySelector("iframe");
-    const text = videoItem.querySelector("p");
+    const video = videoItem.querySelector('iframe');
+    const text = videoItem.querySelector('p');
 
-    videoItem.addEventListener("mouseenter", () => {
-      // Zoom the hovered video and show the text
-      video.style.transform = "scale(1.1)";
-      video.style.transition = "transform 0.3s ease-in-out";
-      text.style.opacity = "1";
-      text.style.transform = "translateY(0)";
-      text.style.transition = "opacity 0.3s ease-in-out, transform 0.3s ease-in-out";
+    videoItem.addEventListener('mouseenter', () => {
+      video.style.transform = 'scale(1.1)';
+      video.style.transition = 'transform 0.3s ease-in-out';
+      text.style.opacity = '1';
+      text.style.transform = 'translateY(0)';
+      text.style.transition = 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out';
 
-      // Pause and dim other videos
       videoItems.forEach((otherItem) => {
         if (otherItem !== videoItem) {
-          const otherVideo = otherItem.querySelector("iframe");
-          otherVideo.style.filter = "brightness(0.5)";
-          otherVideo.style.transition = "filter 0.3s ease-in-out";
-
-          // Pause the other video by reloading its source
-          const iframeSrc = otherVideo.src;
-          otherVideo.src = iframeSrc;
+          const otherVideo = otherItem.querySelector('iframe');
+          otherVideo.style.filter = 'brightness(0.5)';
+          otherVideo.src = otherVideo.src; // Pause other videos
         }
       });
     });
 
-    videoItem.addEventListener("mouseleave", () => {
-      // Reset the hovered video and text
-      video.style.transform = "scale(1)";
-      text.style.opacity = "0";
-      text.style.transform = "translateY(10px)";
+    videoItem.addEventListener('mouseleave', () => {
+      video.style.transform = 'scale(1)';
+      text.style.opacity = '0';
+      text.style.transform = 'translateY(10px)';
 
-      // Reset other videos
       videoItems.forEach((otherItem) => {
-        const otherVideo = otherItem.querySelector("iframe");
-        otherVideo.style.filter = "brightness(1)";
+        const otherVideo = otherItem.querySelector('iframe');
+        otherVideo.style.filter = 'brightness(1)';
       });
     });
   });
-});
 
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Image hover effect for memes
-  const memeItems = document.querySelectorAll(".meme-item");
-
-  memeItems.forEach((memeItem) => {
-    const memeImage = memeItem.querySelector("img");
-
-    memeItem.addEventListener("mouseenter", () => {
-      memeImage.style.transform = "scale(1.1) rotate(3deg)";
-      memeImage.style.transition = "transform 0.3s ease-in-out";
+  // Meme hover effect
+  const memeItems = document.querySelectorAll('.meme-item img');
+  memeItems.forEach((memeImage) => {
+    memeImage.addEventListener('mouseenter', () => {
+      memeImage.style.transform = 'scale(1.1) rotate(3deg)';
+      memeImage.style.transition = 'transform 0.3s ease-in-out';
     });
-
-    memeItem.addEventListener("mouseleave", () => {
-      memeImage.style.transform = "scale(1) rotate(0)";
-    });
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Select all image items
-  const imageItems = document.querySelectorAll(".image-item");
-  const fullscreenOverlay = document.querySelector(".fullscreen-overlay");
-  const fullscreenImage = document.createElement("img");
-  const fullscreenText = document.createElement("p");
-  const closeFullscreen = document.querySelector(".fullscreen-close");
-
-  // Append image and text to fullscreen overlay
-  fullscreenOverlay.appendChild(fullscreenImage);
-  fullscreenOverlay.appendChild(fullscreenText);
-
-  // Add click event for each image
-  imageItems.forEach((item) => {
-    item.addEventListener("click", () => {
-      const img = item.querySelector("img");
-      const text = item.querySelector("p");
-      fullscreenImage.src = img.src;
-      fullscreenText.textContent = text.textContent;
-
-      fullscreenOverlay.classList.add("active");
+    memeImage.addEventListener('mouseleave', () => {
+      memeImage.style.transform = 'scale(1) rotate(0)';
     });
   });
 
-  // Close fullscreen on click
-  closeFullscreen.addEventListener("click", () => {
-    fullscreenOverlay.classList.remove("active");
+  // Fullscreen functionality
+  const fullscreenOverlay = document.querySelector('.fullscreen-overlay');
+  const closeFullscreen = document.querySelector('.fullscreen-close');
+
+  document.querySelectorAll('.image-item, .meme-item').forEach((item) => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      const text = item.querySelector('p') ? item.querySelector('p').textContent : '';
+
+      fullscreenOverlay.innerHTML = `
+        <button class="fullscreen-close">&times;</button>
+        <img src="${img.src}" alt="Fullscreen Image" class="fullscreen-content">
+        <p class="fullscreen-text">${text}</p>
+      `;
+      fullscreenOverlay.style.visibility = 'visible';
+      fullscreenOverlay.style.opacity = '1';
+
+      fullscreenOverlay.querySelector('.fullscreen-close').addEventListener('click', () => {
+        fullscreenOverlay.style.visibility = 'hidden';
+        fullscreenOverlay.style.opacity = '0';
+      });
+    });
   });
 
-  // Close fullscreen on overlay click
-  fullscreenOverlay.addEventListener("click", (e) => {
+  fullscreenOverlay.addEventListener('click', (e) => {
     if (e.target === fullscreenOverlay) {
-      fullscreenOverlay.classList.remove("active");
+      fullscreenOverlay.style.visibility = 'hidden';
+      fullscreenOverlay.style.opacity = '0';
     }
   });
-});
 
-
-// Add fullscreen functionality for memes
-document.querySelectorAll('.meme-item img').forEach((img) => {
-  img.addEventListener('click', () => {
-    const overlay = document.querySelector('.fullscreen-overlay');
-    const closeButton = document.querySelector('.fullscreen-close');
-
-    // Clear previous content in overlay
-    overlay.innerHTML = `
-      <button class="fullscreen-close">&times;</button>
-      <img src="${img.src}" alt="Fullscreen Meme" class="fullscreen-content">
-    `;
-
-    // Show overlay
-    overlay.style.visibility = 'visible';
-    overlay.style.opacity = '1';
-
-    // Close overlay functionality
-    document.querySelector('.fullscreen-close').addEventListener('click', () => {
-      overlay.style.visibility = 'hidden';
-      overlay.style.opacity = '0';
-    });
-  });
-});
-
-
-// FAQ Section functionality
-document.addEventListener("DOMContentLoaded", () => {
-  const faqQuestions = document.querySelectorAll(".faq-question");
-
+  // FAQ Section functionality
+  const faqQuestions = document.querySelectorAll('.faq-question');
   faqQuestions.forEach((button) => {
-    button.addEventListener("click", () => {
+    button.addEventListener('click', () => {
       const answer = button.nextElementSibling;
 
-      // თუ პასუხი უკვე ჩანს, დავხუროთ
-      if (answer.style.display === "block") {
-        answer.style.display = "none";
-        button.parentElement.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.1)"; // ვიზუალური ეფექტი
+      if (answer.style.display === 'block') {
+        answer.style.display = 'none';
+        button.parentElement.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
       } else {
-        // ყველა პასუხის დამალვა, რათა ერთდროულად მხოლოდ ერთი გამოჩნდეს
-        document.querySelectorAll(".faq-answer").forEach((otherAnswer) => {
-          otherAnswer.style.display = "none";
+        document.querySelectorAll('.faq-answer').forEach((otherAnswer) => {
+          otherAnswer.style.display = 'none';
         });
-
-        // ამ კითხვაზე პასუხის ჩვენება
-        answer.style.display = "block";
-        button.parentElement.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.3)"; // ეფექტი
+        answer.style.display = 'block';
+        button.parentElement.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.3)';
       }
     });
   });
-});
-
-
-document.querySelectorAll('.image-item').forEach(item => {
-  item.addEventListener('click', () => {
-    const overlay = document.querySelector('.fullscreen-overlay');
-    const overlayContent = overlay.querySelector('.fullscreen-content');
-    const overlayText = overlay.querySelector('.fullscreen-text');
-
-    // Set the image and text for the overlay
-    const img = item.querySelector('img').src;
-    const text = item.querySelector('p').textContent;
-
-    overlayContent.src = img;
-    overlayText.textContent = text;
-
-    // Show the overlay
-    overlay.classList.add('active');
-  });
-});
-
-// Close fullscreen
-document.querySelector('.fullscreen-close').addEventListener('click', () => {
-  const overlay = document.querySelector('.fullscreen-overlay');
-  overlay.classList.remove('active');
 });

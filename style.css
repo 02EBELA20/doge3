@@ -484,7 +484,7 @@ body {
 /* Main Banner Container */
 .main-banner {
   position: relative; /* Enable positioning for child elements */
-  width: 80%; /* Occupy 80% of the width */
+  width: 70%; /* Occupy 80% of the width */
   margin: 0 auto; /* Center the banner horizontally */
   overflow: hidden; /* Ensure no overflow */
 }
